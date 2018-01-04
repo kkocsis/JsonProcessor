@@ -17,8 +17,7 @@ public class MessageController {
 
     @PostMapping
     public ResponseEntity postJson(@RequestBody String rawMessage) {
-        messageService.save(rawMessage);
-        return ResponseEntity.ok().body(rawMessage);
+        return ResponseEntity.ok().body(messageService.save(rawMessage));
     }
 
     @GetMapping

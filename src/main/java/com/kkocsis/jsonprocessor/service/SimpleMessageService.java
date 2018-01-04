@@ -20,12 +20,12 @@ public class SimpleMessageService implements MessageService {
     private final MessageRepository messageRepository;
 
     @Override
-    public void save(String rawMessage) {
+    public Message save(String rawMessage) {
         ValueOperations<String, String> ops = redisTemplate.opsForValue();
         ops.set(MESSAGE_REDIS_KEY, rawMessage);
         Message message = new Message();
         message.setMessage(rawMessage);
-        messageRepository.save(message);
+        return messageRepository.save(message);
     }
 
     @Override
