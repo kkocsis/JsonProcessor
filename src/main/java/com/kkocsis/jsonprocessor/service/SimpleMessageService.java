@@ -4,6 +4,7 @@ import com.kkocsis.jsonprocessor.domain.Message;
 import com.kkocsis.jsonprocessor.repository.MessageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,12 +14,15 @@ import java.util.List;
 public class SimpleMessageService implements MessageService {
 
     private final MessageRepository messageRepository;
+    private final SimpMessagingTemplate messagingTemplate;
 
     @Override
     public Message save(String rawMessage) {
         Message message = new Message();
         message.setMessage(rawMessage);
-        return messageRepository.save(message);
+        Message persistedMessage = messageRepository.save(message);
+        messagingTemplate.convertAndSend("/topic/message", persistedMessage);
+        return persistedMessage;
     }
 
     @Override
