@@ -27,6 +27,7 @@
         <stomp-websocket.version>2.3.3</stomp-websocket.version>
         <bootstrap.version>3.3.7</bootstrap.version>
         <jquery.version>3.2.1</jquery.version>
+        <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
     </properties>
 
 
@@ -97,6 +98,16 @@
             <version>${jquery.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
