@@ -31,7 +31,7 @@ public class MessageController {
 
     @ApiOperation(value = "Post new message", notes = "Any valid JSON is acceptable, there isn't any structural restriction")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity postJson(@RequestBody String rawMessage) {
+    public ResponseEntity postMessage(@RequestBody String rawMessage) {
         if (!isValidJSON(rawMessage)) {
             log.error("Not valid JSON: " + rawMessage);
             return ResponseEntity.badRequest().build();
@@ -42,7 +42,7 @@ public class MessageController {
 
     @ApiOperation(value = "List all messages")
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Message> findAllJson() {
+    public List<Message> findAllMessages() {
         return messageService.findAll();
     }
 
