@@ -1,0 +1,7 @@
+language: java
+notifications:
+  email:
+    recipients:
+    - kocsis.krisztian.akos@gmail.com
+    on_success: change
+    on_failure: always
