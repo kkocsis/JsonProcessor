@@ -1,6 +1,8 @@
 JSON processor
 ================
 
+[![Build Status](https://travis-ci.org/kkocsis/JsonProcessor.svg?branch=master)](https://travis-ci.org/kkocsis/JsonProcessor)
+
 Simple Spring Boot application for processing dummy JSONs with two REST endpoint:
  1. takes any valid JSON, send it to Redis, a listener calls a service with the freshly received message which is persists it to a PostgreSQL database and pushes it through Websocket. 
  2. retrieving  all persisted messages from database
